@@ -9,18 +9,17 @@ function crearDiv(){
 		tarea.setAttribute('id',i)
 	var first = document.createElement('button');
 		first.setAttribute('id','crea'+i)
-		first.setAttribute('onclick','buttonCreado()')
-		var texto= document.createTextNode("Añadir una lista...");
-		first.appendChild(texto);
+		first.innerHTML="Añadir una lista...";
 	tarea.appendChild(first);
 	tareas.appendChild(tarea);	
 }
 crearDiv();
+
+var tareaCreada = document.getElementById(i);
+var buttonCreado = document.getElementById('crea'+i);
 //var listaTareasP = document.getElementById('lista-tarea');
 
-function buttonCreado(){
-	var boton = document.getElementById(i);
-	var tareaCreada = document.getElementById(i);
+buttonCreado.onclick = function(){
 	//var evento = event.target;
 	var entrada = document.createElement('div');
 		entrada.setAttribute('class','tareas');
@@ -42,11 +41,10 @@ function buttonCreado(){
 	entrada.appendChild(botones);
 	tareaCreada.appendChild(entrada);
 	//remueve el boton creado
-	tareaCreada.removeChild(boton);
+	tareaCreada.removeChild(buttonCreado);
 }
 //var guardar = document.getElementById('agregar');
 function guardar(){
-	var tareaCreada = document.getElementById(i);
 	var nombreTarea = document.getElementById('nombreTarea'+i);
 	var entradaDatos = document.getElementById('entrada'+i);
 	if(nombreTarea.value != ''){
@@ -78,4 +76,4 @@ for (var i = 0; i tareas.length; i++) {
 	tareas[i]
 }
 */
-
+//
