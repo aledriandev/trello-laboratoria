@@ -15,10 +15,10 @@ function agregarTarea(){
 	tarea.removeChild(addTarea);
 	var entrada = document.createElement('div');
 		entrada.setAttribute('class','tareas');
-		entrada.setAttribute('id','entrada');
+		//entrada.setAttribute('id','entrada');
 	var nuevaTarea = document.createElement('input');
 		nuevaTarea.setAttribute('placeholder', 'Añadir una lista...');
-		nuevaTarea.setAttribute('class','nombreTarea');
+		//nuevaTarea.setAttribute('class','nombreTarea');
 	var botones = document.createElement('div');
 	var agregar = document.createElement('button');
 		agregar.innerHTML = "Guardar"
@@ -28,7 +28,7 @@ function agregarTarea(){
 	botones.appendChild(borrar);
 	entrada.appendChild(nuevaTarea);
 	entrada.appendChild(botones);
-	tarea.appendChild(entrada);
+	tareas.appendChild(entrada);
 
 	agregar.addEventListener('click', function(){
 		if(nuevaTarea.value != ''){
@@ -43,17 +43,31 @@ function agregarTarea(){
 			contenedor.appendChild(nombre);
 			contenedor.appendChild(listaTarjeta);
 			contenedor.appendChild(addTarjeta);
-			tarea.replaceChild(contenedor,entrada);
+			tareas.replaceChild(contenedor,entrada);
 			tarea.appendChild(addTarea);
 			agregarTarea();
+
+			addTarjeta.addEventListener('click',function(){
+
+				var nuevaTarjeta = document.createElement('input');
+					nuevaTarjeta.setAttribute('placeholder', 'Añadir una tarjeta...');
+					nuevaTarjeta.value = "";
+					//nuevaTarea.setAttribute('class','nombreTarea');
+				var _botones = document.createElement('div');
+				var _agregar = document.createElement('button');
+					_agregar.innerHTML = "Guardar"
+				var _borrar = document.createElement('button');		
+					_borrar.innerHTML = "x";
+				_botones.appendChild(agregar);
+				_botones.appendChild(borrar);
+				listaTarjeta.appendChild(nuevaTarjeta);
+				listaTarjeta.appendChild(_botones);
+
+			});
 		}
 	});
 
 }	
-
-
-function guardar(){
-}
 
 
 /*Intento 1

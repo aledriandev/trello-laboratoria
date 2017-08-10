@@ -26,7 +26,10 @@ body:not(header){
     background-color: #049af2;
 }
 
-#final
+.tareas{
+	width: 150px;
+	display: inline-block;
+}
 /*
 #add{
 	width: 30px;
