@@ -1,3 +1,62 @@
+var tareas = document.getElementById('tarea');
+
+var tarea = document.createElement('div');
+	tarea.setAttribute('class','tarea')
+var addTarea = document.createElement('button');
+	addTarea.setAttribute('class','add')
+	var text = document.createTextNode("Añadir una lista...")
+	addTarea.appendChild(text);
+tarea.appendChild(addTarea);
+tareas.appendChild(tarea);
+
+addTarea.addEventListener('click',agregarTarea);
+
+function agregarTarea(){
+	tarea.removeChild(addTarea);
+	var entrada = document.createElement('div');
+		entrada.setAttribute('class','tareas');
+		entrada.setAttribute('id','entrada');
+	var nuevaTarea = document.createElement('input');
+		nuevaTarea.setAttribute('placeholder', 'Añadir una lista...');
+		nuevaTarea.setAttribute('class','nombreTarea');
+	var botones = document.createElement('div');
+	var agregar = document.createElement('button');
+		agregar.innerHTML = "Guardar"
+	var borrar = document.createElement('button');		
+		borrar.innerHTML = "x";
+	botones.appendChild(agregar);
+	botones.appendChild(borrar);
+	entrada.appendChild(nuevaTarea);
+	entrada.appendChild(botones);
+	tarea.appendChild(entrada);
+
+	agregar.addEventListener('click', function(){
+		if(nuevaTarea.value != ''){
+			var contenedor = document.createElement('div');
+			var nombre = document.createElement('div');
+			var nombreTarea = document.createTextNode(nuevaTarea.value)
+				nombre.appendChild(nombreTarea) ;
+			var listaTarjeta = document.createElement('div');
+			var addTarjeta = document.createElement('button');
+			var textTj = document.createTextNode("Añadir una tarjeta...")
+				addTarjeta.appendChild(textTj);
+			contenedor.appendChild(nombre);
+			contenedor.appendChild(listaTarjeta);
+			contenedor.appendChild(addTarjeta);
+			tarea.replaceChild(contenedor,entrada);
+			tarea.appendChild(addTarea);
+			agregarTarea();
+		}
+	});
+
+}	
+
+
+function guardar(){
+}
+
+
+/*Intento 1
 var titulo = document.getElementById('nombre-tarea');
 var listaTareas = document.getElementById('lista-tarjeta');
 var addTareas = document.getElementById('add-tarjeta');
@@ -68,7 +127,6 @@ function guardar(){
 }
 
 
-/*
 	if(nuevaTarea.value =! ''){
 		tareas.push(nuevaTarea);
 	}
