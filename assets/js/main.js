@@ -12,7 +12,7 @@ tareas.appendChild(tarea);
 addTarea.addEventListener('click',agregarTarea);
 
 function agregarTarea(){
-	tarea.removeChild(addTarea);
+	tareas.removeChild(tarea);
 	var entrada = document.createElement('div');
 		entrada.setAttribute('class','tareas');
 		//entrada.setAttribute('id','entrada');
@@ -33,6 +33,7 @@ function agregarTarea(){
 	agregar.addEventListener('click', function(){
 		if(nuevaTarea.value != ''){
 			var contenedor = document.createElement('div');
+				contenedor.setAttribute('class','tareas');
 			var nombre = document.createElement('div');
 			var nombreTarea = document.createTextNode(nuevaTarea.value)
 				nombre.appendChild(nombreTarea) ;
@@ -44,7 +45,7 @@ function agregarTarea(){
 			contenedor.appendChild(listaTarjeta);
 			contenedor.appendChild(addTarjeta);
 			tareas.replaceChild(contenedor,entrada);
-			tarea.appendChild(addTarea);
+			tareas.appendChild(tarea);
 			agregarTarea();
 
 			addTarjeta.addEventListener('click',function(){
