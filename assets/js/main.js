@@ -39,6 +39,7 @@ function agregarTarea(){
 				nombre.appendChild(nombreTarea) ;
 			var listaTarjeta = document.createElement('div');
 			var addTarjeta = document.createElement('button');
+				addTarjeta.setAttribute('class','add');
 			var textTj = document.createTextNode("Añadir una tarjeta...")
 				addTarjeta.appendChild(textTj);
 			contenedor.appendChild(nombre);
@@ -46,26 +47,43 @@ function agregarTarea(){
 			contenedor.appendChild(addTarjeta);
 			tareas.replaceChild(contenedor,entrada);
 			tareas.appendChild(tarea);
-			agregarTarea();
-
-			addTarjeta.addEventListener('click',function(){
-
-				var nuevaTarjeta = document.createElement('input');
-					nuevaTarjeta.setAttribute('placeholder', 'Añadir una tarjeta...');
-					nuevaTarjeta.value = "";
-					//nuevaTarea.setAttribute('class','nombreTarea');
-				var _botones = document.createElement('div');
-				var _agregar = document.createElement('button');
-					_agregar.innerHTML = "Guardar"
-				var _borrar = document.createElement('button');		
-					_borrar.innerHTML = "x";
-				_botones.appendChild(agregar);
-				_botones.appendChild(borrar);
-				listaTarjeta.appendChild(nuevaTarjeta);
-				listaTarjeta.appendChild(_botones);
-
-			});
+			agregarTarea();				
 		}
+		addTarjeta.addEventListener('click',addTJ)
+
+		function addTJ(){
+			contenedor.removeChild(addTarjeta);;
+			var contenedorTJ= document.createElement('div');
+			var nuevaTarjeta = document.createElement('input');
+				nuevaTarjeta.setAttribute('placeholder', 'Añadir una tarjeta...');
+				//nuevaTarea.setAttribute('class','nombreTarea');
+			var botonesTJ = document.createElement('div');
+			var agregarTJ = document.createElement('button');
+				agregarTJ.innerHTML = "Añadir"
+			var borrarTJ = document.createElement('button');		
+				borrarTJ.innerHTML = "x";
+			botonesTJ.appendChild(agregarTJ);
+			botonesTJ.appendChild(borrarTJ);
+			contenedorTJ.appendChild(nuevaTarjeta);
+			contenedorTJ.appendChild(botonesTJ);
+			contenedor.appendChild(contenedorTJ);
+
+			agregarTJ.addEventListener('click', function(){
+				if(nuevaTarjeta.value != ''){
+					var contenedorTarjeta = document.createElement('div');
+						contenedorTarjeta.setAttribute('class','tareas');
+					var nombreTarjeta = document.createElement('div');
+					var nombreTJ = document.createTextNode(nuevaTarea.value)
+						nombreTarjeta.appendChild(nombreTJ);
+					contenedorTarjeta.appendChild(nombreTarjeta);
+					contenedorTarjeta.appendChild(listaTarjeta);
+					contenedorTarjeta.appendChild(addTarjeta);
+					contenedor.replaceChild(contenedorTarjeta,contenedorTJ);
+					contenedor.appendChild(addTarjeta);
+					addTJ();				
+				}
+			});
+		};
 	});
 
 }	

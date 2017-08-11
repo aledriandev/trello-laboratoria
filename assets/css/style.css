@@ -9,7 +9,7 @@ Color fondo gris: #EDEFF0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Helvetica",sans-serif;
-    font-size: 16px;
+    font-size: 13px;
 }
 header{
 	background-color: #026AA7;
@@ -27,8 +27,12 @@ body:not(header){
 }
 
 .tareas{
-	width: 150px;
+	width: 200px;
 	display: inline-block;
+	background-color: #EDEFF0;
+	padding: 5px;
+	margin: 5px;
+	border-radius: 5px;
 }
 /*
 #add{
