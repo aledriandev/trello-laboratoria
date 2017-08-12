@@ -34,6 +34,15 @@ body:not(header){
 	margin: 5px;
 	border-radius: 5px;
 }
+
+.tarjeta{
+	width: 180px;
+	display: inline-block;
+	background-color: white;
+	padding: 5px;
+	margin: 5px;
+	border-radius: 5px;	
+}
 /*
 #add{
 	width: 30px;

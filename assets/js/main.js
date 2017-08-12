@@ -71,9 +71,9 @@ function agregarTarea(){
 			agregarTJ.addEventListener('click', function(){
 				if(nuevaTarjeta.value != ''){
 					var contenedorTarjeta = document.createElement('div');
-						contenedorTarjeta.setAttribute('class','tareas');
+						contenedorTarjeta.setAttribute('class','tarjeta');
 					var nombreTarjeta = document.createElement('div');
-					var nombreTJ = document.createTextNode(nuevaTarea.value)
+					var nombreTJ = document.createTextNode(nuevaTarjeta.value)
 						nombreTarjeta.appendChild(nombreTJ);
 					contenedorTarjeta.appendChild(nombreTarjeta);
 					contenedorTarjeta.appendChild(listaTarjeta);
@@ -83,8 +83,9 @@ function agregarTarea(){
 					addTJ();				
 				}
 			});
-		};
+		}
 	});
+	
 
 }	
 
